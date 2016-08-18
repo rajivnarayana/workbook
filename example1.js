@@ -1,4 +1,4 @@
-require('./lib/workbook');
+var workbook = require('./lib/workbook');
 var assert = require('assert');
 
 var wb = new workbook();
