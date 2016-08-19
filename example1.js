@@ -24,5 +24,5 @@ wb.set(0, "A2", 20);
 
 assert( +wb.get(sheet, "A3") === 22, "A3 should be 22");
 
-assert( set_count === 4, "Set count should be 4" );
+assert( set_count === 5, "Set count should be 4" );
 assert( update_count === 1, "Update count should be 1" );
