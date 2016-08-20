@@ -1,3 +1,4 @@
 node_modules
 dist/*.*
 !dist/README.MD
+**/npm-debug.log
