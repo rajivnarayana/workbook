@@ -1,6 +1,11 @@
 var workbook = require('../lib/workbook');
 describe("Range Tests :: ", () => {
     var wb = new workbook("CustomPricingModel");
+
+    /////////////////////////////////////////////////////////////////
+    ///This does not work. i.e. when data is passed in a 2D array.///
+    /////////////////////////////////////////////////////////////////
+    
     var pricing_table = wb.sheet({ name: "PriceTable" , store : 'row', data : [
         ["Programs:", 100,                                      200,                      300,                      400],
         ["Rule1",     "=CustomerPrice!A1", "=CustomerPrice!A1*0.95",  "=CustomerPrice!A1*0.8", "=CustomerPrice!A1*0.78"],
