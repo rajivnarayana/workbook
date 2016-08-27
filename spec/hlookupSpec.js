@@ -25,4 +25,10 @@ describe("V and H LOOKUP tests ", () => {
         });
         expect(+wb.run(sheet, `=VLOOKUP("Tuesday",A1:E7,3,0)`)).toBe(12)
     })
+
+    it ("should not crash when the range is invalid", () => {
+        let set = (ref, val) => wb.set(sheet, ref, val)
+        var sheet = wb.sheet();
+        expect(+wb.run(sheet, `=VLOOKUP("Tuesday",A1:E7,3,0)`)).toBeNaN();
+    })
 });
