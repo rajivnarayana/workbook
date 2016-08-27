@@ -28,8 +28,7 @@ describe("Range Tests :: ", () => {
         // lookup discounted price by matching the position of 100 in the
         // decision table and moving 0 column to the right of PriceTable!A2.
         wb.set(customer_price, "A3", '=OFFSET(PriceTable!A2, 0, MATCH(A2, PriceTable!B1:E1, 0))');
-        let x = wb.get(customer_price,"A3" ).valueOf();
-        expect(x.valueOf()).toBe(42);
+        expect(+wb.get(customer_price,"A3" )).toBe(42);
 
     })
 })

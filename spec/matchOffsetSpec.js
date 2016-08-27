@@ -32,8 +32,12 @@ describe("OffsetMatch Tests :: ", () => {
         // lookup discounted price by matching the position of 100 in the
         // decision table and moving 0 column to the right of PriceTable!A2.
         wb.set(customer_price, "A3", '=OFFSET(PriceTable!A2, 0, MATCH(A2, PriceTable!B1:E1, 0))');
-        expect(wb.get(customer_price,"A3" ).valueOf().valueOf().valueOf()).toBe('42');
+        expect(+wb.get(customer_price,"A3" )).toBe(42);
+        wb.on('updated', function(sheetIndex, row, col, newValue, oldValue) {
+            console.log(`Sheet ${sheetIndex} ${String.fromCharCode(65+col)}${row+1} ${+oldValue} to ${+newValue}`);
+        });
         wb.set(customer_price, "A1", "45");
-        expect(wb.get(customer_price,"A3" ).valueOf().valueOf().valueOf()).toBe('45');
+        let c = wb.get(customer_price, "A3");
+        expect(+wb.get(customer_price,"A3" )).toBe(45);
     })
 })
