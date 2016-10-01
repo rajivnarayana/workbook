@@ -11,7 +11,11 @@ describe("V and H LOOKUP tests ", () => {
             set(`${String.fromCharCode(65+index)}1`, day);
             new Array(rows).fill(0).forEach((val, colIndex) => set(`${String.fromCharCode(65+index)}${colIndex+2}`, rows * index + colIndex+ 1))
         });
-        expect(+wb.run(sheet, `=HLOOKUP("Tuesday",A1:G6,3,0)`)).toBe(12)
+
+        set("H10", `=HLOOKUP("Tuesday",A1:G6,3,0)`);
+        expect(+wb.get(sheet, 'H10')).toBe(12)
+        wb.on("updated", console.log.bind(console));
+        set("C3", 50);
     })
 
     it ("should vLookup ", ()=> {

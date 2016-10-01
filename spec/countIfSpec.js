@@ -4,7 +4,7 @@ var assert = function(condition, errorMessage) {
 }
 
 describe("Simple Workbook ", () => {
-    it ("read workbook", (done) => {
+    it ("read workbook", () => {
         var wb = new workbook();
         var sheet = wb.sheet();
         wb.set(sheet, "A1", 2);
